@@ -54,3 +54,9 @@ git clone git@github.com:Ippey/SymfonyKakizome2021.git
 cd SymfonyKakizome2021
 symfony composer install
 ```
+
+## ローカルWebサーバ実行
+```shell
+symfony server:start -d
+symfony open:local
+```
