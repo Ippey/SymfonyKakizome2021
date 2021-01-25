@@ -25,11 +25,13 @@ class ConferenceController extends AbstractController
     public function show(Request $request, Conference $conference, CommentRepository $commentRepository): Response
     {
         $offset = max(0, $request->query->getInt('offset', 0));
-        $comments = $commentRepository->getCommentPaginator($conference, $offset);
+        $paginator = $commentRepository->getCommentPaginator($conference, $offset);
 
         return $this->render('conference/show.html.twig', [
             'conference' => $conference,
-            'comments' => $comments,
+            'comments' => $paginator,
+            'previous' => $offset - CommentRepository::PAGINATION_PER_PAGE,
+            'next' => min(count($paginator), $offset + CommentRepository::PAGINATION_PER_PAGE),
         ]);
     }
 }
