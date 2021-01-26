@@ -29,7 +29,7 @@ curl -sS https://get.symfony.com/cli/installer | bash
 symfony new [プロジェクト名]
 ```
 
-2. PHP8に変更
+2. PHP8に変更（したい人のみ）
 
 php-version
 ```text
@@ -42,7 +42,7 @@ composer.json
 +        "php": ">=8.0",
 ```
 
-3. composer update
+3. composer update（PHP8にしたい人のみ）
 ```shell
 symfony composer update
 ```
@@ -60,3 +60,8 @@ symfony composer install
 symfony server:start -d
 symfony open:local
 ```
+
+## 諸注意
+- PHP8だと一部The Fast Trackと違う内容になります。
+- composerでインストールするパッケージでバージョン指定されているものは、指定のバージョンをインストールしてください。
+  - 各パッケージとも最新版で動作しますが、The Fast Trackと違う内容・設定になります。
